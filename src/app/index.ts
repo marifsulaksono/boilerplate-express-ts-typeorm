@@ -11,7 +11,6 @@ const listOrigin = process.env.SAHABAT_CORS_ORIGIN?.split(",");
 const corsOptions = {
   origin: listOrigin || ["*"],
   method: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type'],
   optionsSuccessStatus: 200,
   credentials: true
 }
