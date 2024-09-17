@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response, Router } from "express";
+import { NextFunction, Request, Response } from "express";
 import { CustomHttpExceptionError } from "../../lib/common/customError";
 import { ResponseErrorBuilder } from "../../lib/common/response";
 
