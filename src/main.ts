@@ -1,7 +1,7 @@
 import express from "express";
 import * as dotenv from 'dotenv';
 import { App } from "./app";
-import { AppDataSource } from "./config/database/datasource";
+import { AppDataSource } from "./config/sql/datasource";
 
 dotenv.config()
 

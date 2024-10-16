@@ -1,7 +1,7 @@
 import express from "express";
 import cors from 'cors';
 import { UserService } from "./module/users/users.service";
-import { AppDataSource } from "../config/database/datasource";
+import { AppDataSource } from "../config/sql/datasource";
 import { User } from "./module/users/users.model";
 import { UserController } from "./module/users/users.controller";
 import ErrorHandler from "./middleware/errorHandling";
