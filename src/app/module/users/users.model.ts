@@ -1,9 +1,10 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BeforeInsert, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { v4 as uuid } from 'uuid';
 
 @Entity('users')
 export class User {
-    @PrimaryGeneratedColumn("increment")
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column()
     name: string;
@@ -22,4 +23,9 @@ export class User {
 
     @DeleteDateColumn()
     deleted_at: Date;
+
+    @BeforeInsert()
+    generateUUID() {
+        if (!this.id) this.id = uuid();
+    }
 }

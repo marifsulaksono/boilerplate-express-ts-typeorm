@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node build/src/main.js",
-    "dev": "nodemon src/main.ts",
+    "dev": "env-cmd -f .env.local nodemon src/main.ts",
     "build": "tsc -p tsconfig.json",
     "clean": "rimraf coverage build tmp",
     "build:release": "npm run clean && tsc -p tsconfig.release.json",
@@ -42,6 +42,7 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^22.5.4",
     "@types/supertest": "^6.0.2",
+    "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.9.0",
     "@typescript-eslint/parser": "^8.9.0",
     "eslint": "^9.12.0",

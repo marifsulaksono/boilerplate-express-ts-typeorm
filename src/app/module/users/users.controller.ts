@@ -40,7 +40,7 @@ export class UserController {
 
     GetById = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const id: number = parseInt(req.params.id);
+            const id: string = req.params.id;
             const user = await this.userService.GetById(id);
             return ResponseSuccessBuilder(res, 200, undefined, user);
         } catch (error) {
@@ -60,7 +60,7 @@ export class UserController {
 
     Update = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const id: number = parseInt(req.params.id);
+            const id: string = req.params.id;
             const payload: UserDto = req.body;
             const user = await this.userService.Update(id, payload);
             return ResponseSuccessBuilder(res, 200, 'Success update user', user);
@@ -71,7 +71,7 @@ export class UserController {
 
     Delete = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const id: number = parseInt(req.params.id);
+            const id: string = req.params.id;
             const isDeleted = await this.userService.Delete(id);
             if (!isDeleted) {
                 throw new CustomHttpExceptionError('User not found', 400);

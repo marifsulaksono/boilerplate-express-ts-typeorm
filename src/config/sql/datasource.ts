@@ -3,6 +3,7 @@ import { join } from "path";
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { SeederOptions } from 'typeorm-extension';
 import { User } from '../../app/module/users/users.model';
+import { TokenAuth } from '../../app/module/auth/auth.model';
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ const options: DataSourceOptions & SeederOptions = {
     database: process.env.DB_NAME,
     logging: false,
     synchronize: false,
-    entities: [User],
+    entities: [User, TokenAuth],
     migrations: [join(__dirname, '/migrations/**/*{.ts,.js}')],
     migrationsTableName: 'typeorm_migrations',
     migrationsRun: false,

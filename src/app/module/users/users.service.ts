@@ -27,10 +27,17 @@ export class UserService {
         };
     }
 
-    GetById = async(id: number) => {
+    GetById = async(id: string) => {
         const queryBuilder = this.userRepository.createQueryBuilder('user')
         return queryBuilder.select(['user.id', 'user.name', 'user.email', 'user.created_at'])
         .where('user.id = :id', { id })
+        .getOne();
+    }
+
+    GetByEmail = async(email: string) => {
+        const queryBuilder = this.userRepository.createQueryBuilder('user')
+        return queryBuilder.select(['user.id', 'user.name', 'user.email', 'user.password', 'user.created_at'])
+        .where('user.email = :email', { email })
         .getOne();
     }
 
@@ -40,7 +47,7 @@ export class UserService {
         return this.userRepository.save(user);
     }
 
-    async Update(id: number, data: UserDto) {
+    async Update(id: string, data: UserDto) {
         const existUser = await this.userRepository.findOneBy({id});
         if (!existUser) {
             throw new CustomHttpExceptionError('User not found', 404);
@@ -51,7 +58,7 @@ export class UserService {
         return this.userRepository.save(existUser)
     }
 
-    async Delete(id: number): Promise<{ affected?: number }> {
+    async Delete(id: string): Promise<{ affected?: number }> {
         return this.userRepository.softDelete(id);
     }
 }
