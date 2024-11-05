@@ -19,7 +19,7 @@ This repository provides a robust starting point for developing scalable Node.js
 
 It includes key backend features such as JWT authentication, TypeORM for database interactions, and Redis for caching, along with a variety of configurations that make it easy to add or replace components as your project grows.
 
-To create your own project from this boilerplate, click [**Use this template**](https://github.com/new?template_name=go-boilerplate&template_owner=marifsulaksono).
+To create your own project from this boilerplate, click [**Use this template**](https://github.com/new?template_name=boilerplate-express-ts-typeorm&template_owner=marifsulaksono).
 
 ## Key Features
 
@@ -46,8 +46,7 @@ To create your own project from this boilerplate, click [**Use this template**](
 To get started, clone the repository and navigate to the project folder:
 
 ```bash
-git clone https://github.com/[your-username]/[your-repo-name].git
-cd [your-repo-name]
+git clone https://github.com/marifsulaksono/boilerplate-express-ts-typeorm.git
 ```
 
 ### Installation
