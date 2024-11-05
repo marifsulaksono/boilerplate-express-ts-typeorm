@@ -3,6 +3,25 @@ import { ResponsePayload } from "../types/response";
 import { CustomHttpExceptionError } from "./customError";
 import { Response } from "express";
 
+/*
+	this helper is for response builder
+
+    how to use:
+    for success response:
+    1. import ResponseSuccessBuilder from "../../lib/common/response"
+    2. ResponseSuccessBuilder(res, 200, undefined, user);
+
+    for error response:
+    1. import ResponseErrorBuilder from "../../lib/common/response"
+    2. ResponseErrorBuilder(res, err);
+
+    custom error:
+    1. import CustomHttpExceptionError from "../../lib/common/customError"
+    2. const error = new CustomHttpExceptionError('Internal Server Error', 500, err);
+
+	more info contact me @marifsulaksono
+*/
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export function ResponseSuccessBuilder(res: Response, code: number, message?: string | undefined, data?: any) {
     responseBuilder(res, RESPONSE_SUCCESS_DESC, code, message, data)

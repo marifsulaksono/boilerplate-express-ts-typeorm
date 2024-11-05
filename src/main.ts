@@ -5,6 +5,10 @@ import { AppDataSource } from "./config/sql/datasource";
 
 dotenv.config()
 
+/*
+    created by @marifsulaksono
+*/
+
 const StartServer = async () => {
     try {
         const server = express();

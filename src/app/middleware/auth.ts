@@ -12,6 +12,16 @@ declare module 'express' {
     }
 }
 
+/*
+	this middleware is for verifying token
+	you can use this middleware in any route
+
+    how to use:
+    1. import VerifyJwtToken from "../../middleware/auth"
+    2. app.use(VerifyJwtToken(prefixV1))
+
+	more info contact me @marifsulaksono
+*/
 export function VerifyJwtToken(prefix: string) {
     return async (req: Request, _res: Response, next: NextFunction) => {
         try {

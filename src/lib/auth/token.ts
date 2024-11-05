@@ -2,6 +2,15 @@ import jwt from 'jsonwebtoken';
 import { MetadataToken } from '../types/token';
 import { CustomHttpExceptionError } from '../common/customError';
 
+/*
+	this helper is for generating token
+
+    how to use: 
+    1. import TokenJwtGenerator from "../../lib/auth/token"
+    2. const token = await TokenJwtGenerator(metadata, expiredIn, boolean)
+
+	more info contact me @marifsulaksono
+*/
 export async function TokenJwtGenerator(metadata: MetadataToken, expiredIn: string, isRefresh: boolean): Promise<string> {
     // Choose the appropriate secret key based on the token type (refresh or access)
     const secretKey = isRefresh ? process.env.JWT_REFRESH_SECRET_KEY : process.env.JWT_ACCESS_SECRET_KEY;
@@ -32,6 +41,15 @@ export async function TokenJwtGenerator(metadata: MetadataToken, expiredIn: stri
     }
 }
 
+/*
+	this helper is for verifying token
+
+    how to use: 
+    1. import TokenJwtVerification from "../../lib/auth/token"
+    2. const metadata = await TokenJwtVerification(token, boolean)
+
+	more info contact me @marifsulaksono
+*/
 export async function TokenJwtVerification(token: string, isRefresh: boolean): Promise<MetadataToken> {
     const secretKey = isRefresh ? process.env.JWT_REFRESH_SECRET_KEY : process.env.JWT_ACCESS_SECRET_KEY;
     if (!secretKey) {

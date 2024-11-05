@@ -1,6 +1,12 @@
 import * as fs from 'fs';
 import { publicEncrypt, privateDecrypt, createSign, createVerify } from 'crypto';
 
+/*
+	this helper is for encrypting and decrypting message
+
+	more info contact me @marifsulaksono
+*/
+
 // Read RSA keys
 const publicKey = fs.readFileSync(process.env.JWT_PUBLIC_KEY_FILEPATH, 'utf8');
 const privateKey = fs.readFileSync(process.env.JWT_PRIVATE_KEY_FILEPATH, 'utf8');

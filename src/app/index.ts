@@ -38,8 +38,8 @@ export class App {
         const authController = new AuthController(authService, userService);
 
         // routes register
-        app.use('/api/v1/users', userController.router);
-        app.use('/api/v1/auth', authController.router);
+        app.use(`${prefixV1}/users`, userController.router);
+        app.use(`${prefixV1}/auth`, authController.router);
     }
 
     public SetupErrorHandling(app: express.Application): void {
